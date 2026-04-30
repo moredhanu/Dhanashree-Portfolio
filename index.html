@@ -25,7 +25,7 @@
           100% {background-position: 0% 50%;}
         }
 
-        /* 🌸 BLOBS */
+        /* BLOBS */
         .blob {
           position: fixed;
           width: 400px;
@@ -33,33 +33,25 @@
           border-radius: 50%;
           filter: blur(120px);
           z-index: -1;
-          animation: float 10s infinite alternate ease-in-out;
         }
-
         .blob1 { background: #f7d9e3; top: -100px; left: -100px; }
         .blob2 { background: #e6d9ff; bottom: -100px; right: -100px; }
 
-        @keyframes float {
-          from { transform: translateY(0);}
-          to { transform: translateY(40px);}
-        }
-
-        /* 🌸 NAVBAR */
+        /* NAVBAR */
         .navbar {
           position: fixed;
           top: 20px;
           left: 50%;
           transform: translateX(-50%);
-          backdrop-filter: blur(10px);
-          background: rgba(255,255,255,0.5);
+          backdrop-filter: blur(12px);
+          background: rgba(255,255,255,0.6);
           padding: 10px 25px;
           border-radius: 30px;
           box-shadow: 0 8px 20px rgba(0,0,0,0.1);
           z-index: 1000;
         }
-
         .navbar a {
-          margin: 0 10px;
+          margin: 0 12px;
           text-decoration: none;
           color: #5A3E70;
           font-weight: 500;
@@ -73,19 +65,17 @@
           justify-content: center;
           align-items: center;
         }
-
         .hero h1 {
           font-size: 65px;
           color: #5A3E70;
         }
-
         .hero p {
           color: #666;
         }
 
         /* BUTTON */
         .btn {
-          margin-top: 25px;
+          margin-top: 15px;
           padding: 12px 30px;
           border-radius: 30px;
           border: none;
@@ -94,9 +84,8 @@
           cursor: pointer;
           transition: 0.3s;
         }
-
         .btn:hover {
-          transform: scale(1.05);
+          transform: scale(1.08);
           box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
@@ -106,23 +95,21 @@
           max-width: 1000px;
           margin: auto;
         }
-
         h2 {
           color: #5A3E70;
         }
 
         /* CARD */
         .card {
-          background: rgba(255,255,255,0.5);
+          background: rgba(255,255,255,0.6);
           backdrop-filter: blur(15px);
           padding: 25px;
           border-radius: 20px;
           margin: 20px 0;
-          transition: 0.3s;
+          transition: 0.4s;
         }
-
         .card:hover {
-          transform: translateY(-8px);
+          transform: translateY(-8px) scale(1.01);
           box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
@@ -133,7 +120,6 @@
           flex-wrap: wrap;
           align-items: center;
         }
-
         .profile-img {
           width: 160px;
           border-radius: 50%;
@@ -143,26 +129,30 @@
         .skill-card {
           display: flex;
           gap: 20px;
-          align-items: flex-start;
         }
-
         .skill-img {
           width: 90px;
           border-radius: 10px;
-          transition: 0.3s;
         }
 
-        .skill-card:hover .skill-img {
-          transform: scale(1.1);
-        }
-
-        /* HIGHLIGHT */
+        /* TAGS */
         .highlight {
           background: linear-gradient(90deg, #f7d9e3, #e6d9ff);
-          padding: 5px 12px;
+          padding: 5px 10px;
           border-radius: 15px;
-          color: #5A3E70;
-          font-weight: 600;
+          margin: 3px;
+          display: inline-block;
+        }
+
+        /* FADE */
+        .fade {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: 0.8s;
+        }
+        .show {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         /* CONTACT */
@@ -173,10 +163,6 @@
         a {
           color: #5A3E70;
           text-decoration: none;
-        }
-
-        a:hover {
-          text-decoration: underline;
         }
 
     </style>
@@ -200,48 +186,53 @@
 <div class="hero">
     <h1>Dhanashree</h1>
     <p id="typing"></p>
+
+    <p style="color:#888;">Turning logic into real-world applications ✨</p>
+
     <button class="btn" onclick="document.getElementById('about').scrollIntoView()">
-        View My Profile ↓
+        View Profile ↓
     </button>
+
+    <!-- DOWNLOAD RESUME -->
+    <a href="resume.pdf" download>
+        <button class="btn">Download Resume (PDF)</button>
+    </a>
 </div>
 
 <!-- ABOUT -->
-<div class="section" id="about">
+<div class="section fade" id="about">
     <h2>About Me</h2>
     <div class="about">
         <img src="profile.jpeg" class="profile-img">
-        <div>
-            <p>
-                Software Developer with 2.2 years of experience in building banking applications for RBI reporting. Strong in Java, SQL, and Web technologies with focus on backend logic, performance optimization, and structured UI development.
-                <span class="highlight">Immediate Joiner</span>
-            </p>
-        </div>
+        <p>
+            Software Developer with 2.2 years of experience in banking applications for RBI reporting.
+            Strong in Java, SQL, and Web technologies.
+            <span class="highlight">Immediate Joiner</span>
+        </p>
     </div>
 </div>
 
 <!-- EXPERIENCE -->
-<div class="section" id="exp">
+<div class="section fade" id="exp">
     <h2>Experience</h2>
     <div class="card">
-        <h3>Software Developer | Surya Financial Technologies</h3>
-        <p>Worked on banking applications used for RBI quarterly and yearly report generation.</p>
-        <p>Handled backend logic and complex financial calculations using Java.</p>
-        <p>Wrote optimized SQL queries for large datasets and report processing.</p>
-        <p>Built UI using HTML, CSS, and JavaScript.</p>
+        <p>Worked on RBI report generation using Java & SQL.</p>
+        <p>Handled backend calculations and optimized queries.</p>
     </div>
 </div>
 
 <!-- SKILLS -->
-<div class="section" id="skills">
+<div class="section fade" id="skills">
     <h2>Skills</h2>
 
     <div class="card skill-card">
         <img src="java.jpg" class="skill-img">
         <div>
-            <h3>Java & Object-Oriented Programming</h3>
-            <p>Strong in Encapsulation, Inheritance, Polymorphism, Abstraction.</p>
-            <p>Structured coding, exception handling, and clean architecture.</p>
-            <p>Collections: List, Set, Map (ArrayList, HashMap, HashSet).</p>
+            <h3>Java</h3>
+            <span class="highlight">OOP</span>
+            <span class="highlight">ArrayList</span>
+            <span class="highlight">HashMap</span>
+            <span class="highlight">Exception Handling</span>
         </div>
     </div>
 
@@ -249,56 +240,73 @@
         <img src="sql.jpg" class="skill-img">
         <div>
             <h3>SQL</h3>
-            <p>Joins, Subqueries, Aggregations, GROUP BY, HAVING.</p>
-            <p>Query optimization and handling large datasets.</p>
-            <p>Data validation and report generation.</p>
+            <span class="highlight">Joins</span>
+            <span class="highlight">Subqueries</span>
+            <span class="highlight">Aggregation</span>
         </div>
     </div>
 
     <div class="card skill-card">
         <img src="web.jpg" class="skill-img">
         <div>
-            <h3>Web Technologies</h3>
-            <p>HTML, CSS, JavaScript for responsive UI.</p>
-            <p>DOM manipulation and event handling.</p>
-            <p>Clean UI and user experience focus.</p>
+            <h3>Web</h3>
+            <span class="highlight">HTML</span>
+            <span class="highlight">CSS</span>
+            <span class="highlight">JavaScript</span>
         </div>
     </div>
 
 </div>
 
 <!-- EDUCATION -->
-<div class="section" id="education">
+<div class="section fade" id="education">
     <h2>Education</h2>
     <div class="card">
-        <h3>B.Sc Computer Science</h3>
-        <p>Gulbarga University</p>
-        <p>Strong foundation in programming, databases, and problem solving.</p>
+        <p>B.Sc Computer Science - Gulbarga University</p>
     </div>
 </div>
 
 <!-- CONTACT -->
-<div class="section contact" id="contact">
+<div class="section contact fade" id="contact">
     <h2>Contact</h2>
     <p>📧 mored1641@gmail.com</p>
-    <p>
-        <a href="https://www.linkedin.com/in/dhanashree-more-9a68b625b/" target="_blank">
-            LinkedIn
-        </a>
-    </p>
+    <p><a href="https://www.linkedin.com/in/dhanashree-more-9a68b625b/">LinkedIn</a></p>
+
+    <!-- HIRE ME -->
+    <button class="btn"
+            onclick="window.location.href='mailto:mored1641@gmail.com?subject=Hiring%20Opportunity&body=Hi%20Dhanashree,%20I%20saw%20your%20portfolio...'">
+        Hire Me
+    </button>
 </div>
 
 <script>
-    const text = "Java Developer | SQL | Web | Immediate Joiner";
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, 50);
-      }
+
+    /* TYPING */
+    let text="Java Developer | SQL | Web | Immediate Joiner";
+    let i=0;
+    function type(){
+     if(i<text.length){
+      document.getElementById("typing").innerHTML+=text.charAt(i);
+      i++; setTimeout(type,50);
+     }
     }
     type();
+
+    /* SCROLL ANIMATION */
+    window.addEventListener('scroll',()=>{
+     document.querySelectorAll('.fade').forEach(el=>{
+      if(el.getBoundingClientRect().top<window.innerHeight-100){
+        el.classList.add('show');
+      }
+     });
+    });
+
+    /* MOUSE MOVE EFFECT */
+    document.addEventListener("mousemove", e=>{
+     document.body.style.backgroundPosition=
+     `${e.clientX/50}px ${e.clientY/50}px`;
+    });
+
 </script>
 
 </body>
