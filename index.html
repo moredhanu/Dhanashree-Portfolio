@@ -9,12 +9,60 @@
 
     <style>
 
+        /* 🌸 GLOBAL */
         body {
           margin: 0;
           font-family: 'Poppins', sans-serif;
-          background: linear-gradient(135deg, #FAF7F2, #F3E8FF);
-          color: #333;
-          scroll-behavior: smooth;
+          background: linear-gradient(270deg, #fffafc, #f3e8ff, #ffeef5);
+          background-size: 600% 600%;
+          animation: gradientBG 12s ease infinite;
+          overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+          0% {background-position: 0% 50%;}
+          50% {background-position: 100% 50%;}
+          100% {background-position: 0% 50%;}
+        }
+
+        /* 🌸 BLOBS */
+        .blob {
+          position: fixed;
+          width: 400px;
+          height: 400px;
+          border-radius: 50%;
+          filter: blur(120px);
+          z-index: -1;
+          animation: float 10s infinite alternate ease-in-out;
+        }
+
+        .blob1 { background: #f7d9e3; top: -100px; left: -100px; }
+        .blob2 { background: #e6d9ff; bottom: -100px; right: -100px; }
+
+        @keyframes float {
+          from { transform: translateY(0);}
+          to { transform: translateY(40px);}
+        }
+
+        /* 🌸 NAVBAR */
+        .navbar {
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          backdrop-filter: blur(10px);
+          background: rgba(255,255,255,0.5);
+          padding: 10px 25px;
+          border-radius: 30px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+          z-index: 1000;
+        }
+
+        .navbar a {
+          margin: 0 10px;
+          text-decoration: none;
+          color: #5A3E70;
+          font-weight: 500;
         }
 
         /* HERO */
@@ -27,8 +75,8 @@
         }
 
         .hero h1 {
-          font-size: 55px;
-          color: #6A4E77;
+          font-size: 65px;
+          color: #5A3E70;
         }
 
         .hero p {
@@ -37,39 +85,45 @@
 
         /* BUTTON */
         .btn {
-          margin-top: 20px;
-          padding: 12px 25px;
+          margin-top: 25px;
+          padding: 12px 30px;
           border-radius: 30px;
-          background: #EADCF8;
           border: none;
+          background: linear-gradient(90deg, #f7d9e3, #e6d9ff);
           color: #5A3E70;
           cursor: pointer;
-          font-weight: 500;
+          transition: 0.3s;
         }
 
         .btn:hover {
-          background: #D9C3F1;
+          transform: scale(1.05);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         /* SECTION */
         .section {
-          padding: 70px 20px;
+          padding: 80px 20px;
           max-width: 1000px;
           margin: auto;
         }
 
+        h2 {
+          color: #5A3E70;
+        }
+
         /* CARD */
         .card {
-          background: rgba(255,255,255,0.85);
+          background: rgba(255,255,255,0.5);
+          backdrop-filter: blur(15px);
           padding: 25px;
-          border-radius: 18px;
+          border-radius: 20px;
           margin: 20px 0;
-          box-shadow: 0 8px 25px rgba(0,0,0,0.05);
           transition: 0.3s;
         }
 
         .card:hover {
-          transform: translateY(-5px);
+          transform: translateY(-8px);
+          box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         /* ABOUT */
@@ -81,7 +135,7 @@
         }
 
         .profile-img {
-          width: 170px;
+          width: 160px;
           border-radius: 50%;
         }
 
@@ -89,34 +143,26 @@
         .skill-card {
           display: flex;
           gap: 20px;
-          align-items: center;
+          align-items: flex-start;
         }
 
         .skill-img {
-          width: 100px;
+          width: 90px;
           border-radius: 10px;
+          transition: 0.3s;
         }
 
-        /* HIGHLIGHT BADGE */
+        .skill-card:hover .skill-img {
+          transform: scale(1.1);
+        }
+
+        /* HIGHLIGHT */
         .highlight {
-          background: #EADCF8;
+          background: linear-gradient(90deg, #f7d9e3, #e6d9ff);
+          padding: 5px 12px;
+          border-radius: 15px;
           color: #5A3E70;
-          padding: 4px 10px;
-          border-radius: 12px;
           font-weight: 600;
-          margin: 0 4px;
-        }
-
-        /* FADE */
-        .fade-in {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: 0.8s;
-        }
-
-        .fade-in.show {
-          opacity: 1;
-          transform: translateY(0);
         }
 
         /* CONTACT */
@@ -125,7 +171,7 @@
         }
 
         a {
-          color: #7A5C8E;
+          color: #5A3E70;
           text-decoration: none;
         }
 
@@ -138,70 +184,64 @@
 
 <body>
 
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="#about">About</a>
+    <a href="#exp">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+</div>
+
 <!-- HERO -->
 <div class="hero">
     <h1>Dhanashree</h1>
-    <p>Java Developer | SQL | Web</p>
-
+    <p id="typing"></p>
     <button class="btn" onclick="document.getElementById('about').scrollIntoView()">
         View My Profile ↓
     </button>
 </div>
 
 <!-- ABOUT -->
-<div class="section fade-in" id="about">
+<div class="section" id="about">
     <h2>About Me</h2>
     <div class="about">
         <img src="profile.jpeg" class="profile-img">
-
         <div>
             <p>
-                Software Developer with 2.2 years of experience in building and maintaining banking applications for RBI regulatory reporting, with strong expertise in developing backend logic using Java and applying Object-Oriented Programming principles to create scalable and maintainable solutions. Proficient in writing complex SQL queries for large-scale data processing, ensuring data accuracy and optimizing performance for report generation systems, along with hands-on experience in HTML, CSS, and JavaScript to build clean and user-friendly interfaces.
-                <span class="highlight">Immediate Joiner</span>, actively seeking better opportunities to contribute and grow in a challenging environment.
+                Software Developer with 2.2 years of experience in building banking applications for RBI reporting. Strong in Java, SQL, and Web technologies with focus on backend logic, performance optimization, and structured UI development.
+                <span class="highlight">Immediate Joiner</span>
             </p>
         </div>
     </div>
 </div>
 
 <!-- EXPERIENCE -->
-<div class="section fade-in">
-    <h2>💼 Experience</h2>
-
+<div class="section" id="exp">
+    <h2>Experience</h2>
     <div class="card">
-        <h3>Software Developer | Surya Financial Technologies (2.2 Years)</h3>
-
-        <p>
-            Worked on developing banking applications used by financial institutions to generate quarterly and yearly RBI reports.
-        </p>
-
-        <p>
-            Focused on backend business logic using Java, especially handling complex financial calculations and report generation workflows.
-        </p>
-
-        <p>
-            Used SQL extensively for writing complex queries, joins, and aggregations for large banking datasets.
-        </p>
-
-        <p>
-            Optimized queries to improve performance and ensure faster report generation.
-        </p>
-
-        <p>
-            Worked on frontend using HTML, CSS, and JavaScript to build structured UI.
-        </p>
-
+        <h3>Software Developer | Surya Financial Technologies</h3>
+        <p>Worked on banking applications used for RBI quarterly and yearly report generation.</p>
+        <p>Handled backend logic and complex financial calculations using Java.</p>
+        <p>Wrote optimized SQL queries for large datasets and report processing.</p>
+        <p>Built UI using HTML, CSS, and JavaScript.</p>
     </div>
 </div>
 
 <!-- SKILLS -->
-<div class="section fade-in">
-    <h2>My Skills</h2>
+<div class="section" id="skills">
+    <h2>Skills</h2>
 
     <div class="card skill-card">
         <img src="java.jpg" class="skill-img">
         <div>
-            <h3>Java & OOP</h3>
+            <h3>Java & Object-Oriented Programming</h3>
             <p>Strong in Encapsulation, Inheritance, Polymorphism, Abstraction.</p>
+            <p>Structured coding, exception handling, and clean architecture.</p>
+            <p>Collections: List, Set, Map (ArrayList, HashMap, HashSet).</p>
         </div>
     </div>
 
@@ -209,7 +249,9 @@
         <img src="sql.jpg" class="skill-img">
         <div>
             <h3>SQL</h3>
-            <p>Experienced in joins, subqueries, aggregation, and performance tuning.</p>
+            <p>Joins, Subqueries, Aggregations, GROUP BY, HAVING.</p>
+            <p>Query optimization and handling large datasets.</p>
+            <p>Data validation and report generation.</p>
         </div>
     </div>
 
@@ -218,55 +260,45 @@
         <div>
             <h3>Web Technologies</h3>
             <p>HTML, CSS, JavaScript for responsive UI.</p>
+            <p>DOM manipulation and event handling.</p>
+            <p>Clean UI and user experience focus.</p>
         </div>
     </div>
 
 </div>
 
-<!-- LEARNING -->
-<div class="section fade-in">
-    <h2>📚 Currently Learning</h2>
-
-    <div class="card">
-        <p>• Java Collection Framework</p>
-        <p>• Spring & Spring Boot</p>
-        <p>• Hibernate </p>
-    </div>
-</div>
-
 <!-- EDUCATION -->
-<div class="section fade-in">
-    <h2>🎓 Education</h2>
-
+<div class="section" id="education">
+    <h2>Education</h2>
     <div class="card">
-        <p><strong>B.Sc</strong></p>
-        <p>Computer Science</p>
+        <h3>B.Sc Computer Science</h3>
         <p>Gulbarga University</p>
+        <p>Strong foundation in programming, databases, and problem solving.</p>
     </div>
 </div>
 
 <!-- CONTACT -->
-<div class="section contact fade-in">
+<div class="section contact" id="contact">
     <h2>Contact</h2>
     <p>📧 mored1641@gmail.com</p>
     <p>
-        🔗 <a href="https://www.linkedin.com/in/dhanashree-more-9a68b625b/" target="_blank">
-        Connect on LinkedIn
-    </a>
+        <a href="https://www.linkedin.com/in/dhanashree-more-9a68b625b/" target="_blank">
+            LinkedIn
+        </a>
     </p>
 </div>
 
-<!-- SCROLL ANIMATION -->
 <script>
-    const elements = document.querySelectorAll('.fade-in');
-
-    window.addEventListener('scroll', () => {
-      elements.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-          el.classList.add('show');
-        }
-      });
-    });
+    const text = "Java Developer | SQL | Web | Immediate Joiner";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 50);
+      }
+    }
+    type();
 </script>
 
 </body>
