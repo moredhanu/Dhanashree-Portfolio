@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanashree | Java Developer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* 🌌 BACKGROUND */
+        body {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          overflow: hidden;
+          background: radial-gradient(circle at 30% 20%, #1b2a4a, #070b18 70%);
+          color: #eaeefc;
+        }
+
+        /* ⭐ STAR FIELD */
+        body::before {
+          content: "";
+          position: fixed;
+          width: 200%;
+          height: 200%;
+          background-image: radial-gradient(white 1px, transparent 1px);
+          background-size: 90px 90px;
+          opacity: 0.12;
+          animation: drift 120s linear infinite;
+          z-index: -1;
+        }
+
+        @keyframes drift {
+          from { transform: translate(0,0); }
+          to { transform: translate(-250px, 200px); }
+        }
+
+        /* MENU */
+        .menu {
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 15px;
+          z-index: 1000;
+        }
+
+        .menu button {
+          background: transparent;
+          border: none;
+          color: #cfd8ff;
+          cursor: pointer;
+          font-size: 13px;
+          border-bottom: 2px solid transparent;
+          font-style: italic;
+        }
+
+        .menu button:hover {
+          border-bottom: 2px solid #7aa2ff;
+        }
+
+        /* SECTIONS */
+        .section {
+          display: none;
+          height: 100vh;
+          overflow-y: auto;
+          padding: 100px 15%;
+        }
+
+        .section.active {
+          display: block;
+        }
+
+        /* TEXT */
+        h1 { font-size: 52px; font-weight: 700; }
+        h2 {
+          font-size: 24px;
+          font-weight: 600;
+          margin-top: 40px;
+          border-left: 3px solid #7aa2ff;
+          padding-left: 10px;
+        }
+        h3 { margin-top: 25px; font-weight: 600; }
+
+        p {
+          line-height: 1.8;
+          color: #d3dcf5;
+          font-size: 15px;
+          font-style: italic;
+        }
+
+        /* IMAGE */
+        .profile-img {
+          width: 140px;
+          border-radius: 50%;
+          margin: 20px 0;
+        }
+
+        /* SKILL BOX */
+        .skill-box {
+          display: flex;
+          gap: 20px;
+          margin-top: 20px;
+          padding: 18px;
+          border-radius: 12px;
+          background: rgba(255,255,255,0.04);
+        }
+
+        .skill-box img {
+          width: 110px;
+          height: 110px;
+          border-radius: 10px;
+        }
+
+        /* TAG */
+        .tag {
+          display: inline-block;
+          font-size: 12px;
+          padding: 4px 10px;
+          margin: 4px;
+          border-radius: 20px;
+          border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* BUTTON */
+        .btn {
+          padding: 10px 15px;
+          margin: 10px;
+          border: 1px solid #7aa2ff;
+          background: transparent;
+          color: #d7e1ff;
+          cursor: pointer;
+          font-style: italic;
+        }
+
+        .btn:hover {
+          background: #7aa2ff;
+          color: black;
+        }
+
+        /* ACTIVE TAB */
+        .active-tab {
+          background: #7aa2ff !important;
+          color: black !important;
+        }
+
+        /* SUB NAV */
+        .sub-nav {
+          margin-bottom: 20px;
+        }
+
+        .skill-nav {
+          margin-top: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+    <button onclick="show(0)">Home</button>
+    <button onclick="show(1)">About</button>
+    <button onclick="show(2)">Experience</button>
+    <button onclick="show(3)">Skills</button>
+    <button onclick="show(7)">Projects</button>
+    <button onclick="show(8)">Education</button>
+    <button onclick="show(9)">Contact</button>
+</div>
+
+<!-- HOME -->
+<section class="section active">
+    <h1>Dhanashree More</h1>
+    <p> Java Backend Developer with 2.2 years of experience in building and maintaining enterprise-level banking applications.</p>
+    <p> I specialize in designing backend logic, processing large-scale financial data, and writing optimized SQL queries for reporting systems.</p>
+    <p> My focus is on writing clean, maintainable, and scalable code that improves system reliability and performance in production environments.</p>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+    <h2>About</h2>
+    <img src="MyProfile.jpeg" class="profile-img">
+    <p> I am a backend-focused software developer working in the banking domain, specifically on RBI reporting systems.</p>
+    <p> My role involves understanding complex financial data flows, transforming raw data into structured reports, and ensuring accuracy in system-generated outputs.</p>
+    <p> I strongly follow clean code principles, modular design, and debugging-driven development to ensure system stability.</p>
+    <p> I am also responsible for collaborating with cross-functional teams to resolve production issues and enhance system performance.</p>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section">
+    <h2>Experience</h2>
+    <p><b>Surya Financial Technologies</b></p>
+    <p>Nov 2023 – Feb 2026 (2.2 Years)</p>
+    <p> Worked on RBI reporting system used for regulatory financial data submissions.</p>
+
+    <p><b>Key Responsibilities: </b></p>
+    <p> - Developed backend modules using Java for processing financial datasets </p>
+    <p> - Designed SQL queries for extracting, validating, and transforming large volumes of banking data </p>
+    <p> - Ensured accuracy of regulatory reports by implementing validation logic at multiple system levels </p>
+    <p> - Optimized existing queries and backend workflows to improve system performance and reduce processing time </p>
+    <p> - Worked closely with testing and support teams to resolve production issues and ensure system reliability </p>
+
+    <p><b> Impact: </b></p>
+    <p> - Improved data processing efficiency through optimized SQL logic </p>
+    <p> - Reduced manual intervention by automating report generation flows </p>
+    <p> - Enhanced system stability in production banking environment </p>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+    <h2>Skills</h2>
+    <p>Explore my technical expertise across different domains.</p>
+
+    <div class="skill-nav">
+        <button class="btn" onclick="showSkill(4)">Java</button>
+        <button class="btn" onclick="showSkill(5)">SQL</button>
+        <button class="btn" onclick="showSkill(6)">Web</button>
+    </div>
+</section>
+
+<!-- JAVA -->
+<section class="section">
+    <h2>Java</h2>
+
+    <div class="sub-nav">
+        <button class="btn" onclick="showSkill(4)">Java</button>
+        <button class="btn" onclick="showSkill(5)">SQL</button>
+        <button class="btn" onclick="showSkill(6)">Web</button>
+    </div>
+
+    <div class="skill-box">
+        <img src="java.jpg">
+        <div>
+            <p>Core Java used in backend banking applications.</p>
+
+            <p><b>OOP Concepts:</b></p>
+            <span class="tag">Inheritance</span>
+            <span class="tag">Polymorphism</span>
+            <span class="tag">Encapsulation</span>
+            <span class="tag">Abstraction</span>
+
+            <p><b>Collections:</b></p>
+            <span class="tag">ArrayList</span>
+            <span class="tag">HashMap</span>
+            <span class="tag">HashSet</span>
+            <span class="tag">LinkedList</span>
+
+            <p><b>Exception Handling:</b></p>
+            <span class="tag">Try-Catch</span>
+            <span class="tag">Checked</span>
+            <span class="tag">Unchecked</span>
+        </div>
+    </div>
+</section>
+
+<!-- SQL -->
+<section class="section">
+    <h2>SQL</h2>
+
+    <div class="sub-nav">
+        <button class="btn" onclick="showSkill(4)">Java</button>
+        <button class="btn" onclick="showSkill(5)">SQL</button>
+        <button class="btn" onclick="showSkill(6)">Web</button>
+    </div>
+
+    <div class="skill-box">
+        <img src="sql.jpg">
+        <div>
+            <p>Used for banking data processing and reporting.</p>
+            <span class="tag">Joins</span>
+            <span class="tag">Subqueries</span>
+            <span class="tag">Group By</span>
+            <span class="tag">Indexes</span>
+        </div>
+    </div>
+</section>
+
+<!-- WEB -->
+<section class="section">
+    <h2>Web</h2>
+
+    <div class="sub-nav">
+        <button class="btn" onclick="showSkill(4)">Java</button>
+        <button class="btn" onclick="showSkill(5)">SQL</button>
+        <button class="btn" onclick="showSkill(6)">Web</button>
+    </div>
+
+    <div class="skill-box">
+        <img src="web.jpg">
+        <div>
+            <p>Basic frontend knowledge.</p>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section">
+    <h2>Projects</h2>
+
+    <h3>BALM – Banking Liquidity Risk Platform</h3>
+    <p>Worked on banking application focusing on backend data processing and business logic validation.</p>
+    <p>Utilized Java and OOPs concepts to understand and support application workflows.</p>
+    <p>Applied Collections Framework (List, Map) for handling and processing data efficiently.</p>
+    <p>Wrote SQL queries for data retrieval, validation, and debugging.</p>
+    <p>Worked with REST APIs to handle request/response and ensure accurate data flow.</p>
+    <p>Collaborated with teams to identify issues and improve system performance and reliability.</p>
+
+    <h3>OPSRISK, Banking</h3>
+    <p>Worked on operational risk management system focusing on backend data handling and workflows.</p>
+    <p>Used SQL queries for data verification, processing, and debugging.</p>
+    <p>Supported application logic validation and system flow understanding using Java concepts.</p>
+    <p>Worked with REST APIs to validate and manage data exchange between systems.</p>
+    <p>Collaborated with stakeholders to enhance system stability and performance.</p>
+</section>
+
+<!-- EDUCATION -->
+<section class="section">
+    <h2>Education</h2>
+    <p>B.Sc Computer Science – Gulbarga University</p>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+    <h2>Contact</h2>
+    <p>Email: mored1641@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/dhanashree-more</p>
+
+    <button class="btn"
+            onclick="window.location.href='mailto:mored1641@gmail.com?subject=Hiring%20Opportunity&body=Hi%20Dhanashree,%20I%20saw%20your%20portfolio...'">
+        Hire Me
+    </button>
+</section>
+
+<script>
+
+    let currentSkill = null;
+
+    function show(i) {
+      document.querySelectorAll(".section").forEach((s, idx) => {
+        s.classList.toggle("active", idx === i);
+      });
+    }
+
+    /* PERSISTENT ACTIVE TAB */
+    function showSkill(index) {
+      currentSkill = index;
+      show(index);
+      updateActiveTabs();
+    }
+
+    function updateActiveTabs() {
+      document.querySelectorAll(".btn").forEach(b => {
+        b.classList.remove("active-tab");
+
+        if (currentSkill === 4 && b.innerText === "Java") b.classList.add("active-tab");
+        if (currentSkill === 5 && b.innerText === "SQL") b.classList.add("active-tab");
+        if (currentSkill === 6 && b.innerText === "Web") b.classList.add("active-tab");
+      });
+    }
+
+</script>
+
+</body>
+</html>
